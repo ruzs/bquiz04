@@ -25,16 +25,16 @@
         </td>
     </tr>
 </table>
-<div class="ct"><button onclick="login()">確認</button></div>
+<div class="ct"><button onclick="login('mem')">確認</button></div>
 
 
 <script>
 
-function login(){
+function login(table){
     $.get("./api/chk_cert.php",{cert:$('#cert').val()},(res)=>{
         console.log(res)
         if(parseInt(res)==1){
-            $.get("./api/chk_pw.php",{acc:$("#acc").val(),pw:$("#pw").val()},(res)=>{
+            $.get("./api/chk_pw.php",{table,acc:$("#acc").val(),pw:$("#pw").val()},(res)=>{
                 if(parseInt(res)){
                     location.href='index.php';
                 }else{
