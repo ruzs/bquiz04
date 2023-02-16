@@ -1,3 +1,4 @@
+<?php include_once "./api/base.php";?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0057)?do=admin -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,7 +44,8 @@
 			?>
 		</div>
 		<div id="bottom" style="line-height:70px; color:#FFF; background:url(icon/bot.png);" class="ct">
-			頁尾版權 : </div>
+			<?=$Bottom->find(1)['bottom'];?>
+		</div>
 	</div>
 
 </body>
