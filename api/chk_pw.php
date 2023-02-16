@@ -16,6 +16,7 @@ switch ($table) {
       $_SESSION['admin'] = $_GET['acc'];
       echo 1;
     } else {
+      echo $_SESSION;
       echo 0;
     }
     break;

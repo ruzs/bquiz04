@@ -1,11 +1,14 @@
 <table class="all">
   <tr>
+  <?php
+// echo serialize([1,2,3,4,5]);
+?>
     <td class="tt ct">帳號</td>
     <td class="pp"><input type="text" name="acc" id="acc"></td>
   </tr>
   <tr>
     <td class="tt ct">密碼</td>
-    <td class="pp"><input type="text" name="pw" id="pw"></td>
+    <td class="pp"><input type="password" name="pw" id="pw"></td>
   </tr>
   <tr>
     <td class="tt ct">驗證碼</td>
@@ -24,17 +27,13 @@
 
 <script>
   function login(table) {
-    $.get("./api/chk_cert.php", {
-      cert: $('#cert').val()
-    }, (res) => {
+    $.get("./api/chk_cert.php", {cert: $('#cert').val()}, (res) => {
       if (parseInt(res) == 1) {
-        $.get("./api/chk_pw.php", {
-          table,
-          acc: $("#acc").val(),
-          pw: $("#pw").val()
-        }, (res) => {
+        $.get("./api/chk_pw.php", {table,acc: $("#acc").val(),pw: $("#pw").val()}, (res) => {
+          console.log(res);
           if (parseInt(res)) {
-            location.href = 'index.php';
+            location.href = 'back.php?do=admin';
+            
           } else {
             alert("帳號或密碼錯誤,請重新輸入");
           }
