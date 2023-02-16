@@ -6,26 +6,40 @@
   </tr>
   <tr>
     <td class="tt ct">帳號</td>
-    <td class="pp"><input type="text" name="acc" id=""><button>檢測帳號</button></td>
+    <td class="pp"><input type="text" name="acc" id="acc"><button id="check">檢測帳號</button></td>
   </tr>
   <tr>
     <td class="tt ct">密碼</td>
-    <td class="pp"><input type="password" name="pw" id=""></td>
+    <td class="pp"><input type="password" name="pw" id="pw"></td>
   </tr>
   <tr>
     <td class="tt ct">電話</td>
-    <td class="pp"><input type="text" name="tel" id=""></td>
+    <td class="pp"><input type="text" name="tel" id="tel"></td>
   </tr>
   <tr>
     <td class="tt ct">住址</td>
-    <td class="pp"><input type="text" name=addr"" id=""></td>
+    <td class="pp"><input type="text" name=addr"" id="addr"></td>
   </tr>
   <tr>
     <td class="tt ct">電子信箱</td>
-    <td class="pp"><input type="text" name="email" id=""></td>
+    <td class="pp"><input type="text" name="email" id="email"></td>
   </tr>
 </table>
 <div class="ct">
     <button>註冊</button>
     <button>重置</button>
 </div>
+
+<script>
+  $("#check").on('click',function(){
+    console.log(10);
+    let acc =$("#acc").val();
+    $.get("./api/chk_acc.php",{acc},(result)=>{
+      if(parseInt(result)|| acc=='admin'){
+        alert("此帳號已存在,請使用別的帳號")
+      }else{
+        alert("此帳號可使用")
+      }
+    })
+  })
+</script>

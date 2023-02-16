@@ -115,4 +115,5 @@ function q($sql){
 }
 
 $Bottom=new DB('bottom');
+$Mem=new DB('mem');
 ?>
