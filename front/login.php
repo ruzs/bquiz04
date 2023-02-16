@@ -14,7 +14,36 @@
     </tr>
     <tr>
         <td class="tt ct">驗證碼</td>
-        <td class="pp"><input type="text" name="cert" id="cert"></td>
+        <td class="pp">
+        <?php
+            $a=rand(10,99);
+            $b=rand(10,99);
+            $_SESSION['cert']=$a+$b;         
+            echo $a . "+" . $b . "=";
+        ?>
+          <input type="text" name="cert" id="cert">
+        </td>
     </tr>
 </table>
-<div class="ct"><button>確認</button></div>
+<div class="ct"><button onclick="login()">確認</button></div>
+
+
+<script>
+
+function login(){
+    $.get("./api/chk_cert.php",{cert:$('#cert').val()},(res)=>{
+        console.log(res)
+        if(parseInt(res)==1){
+            $.get("./api/chk_pw.php",{acc:$("#acc").val(),pw:$("#pw").val()},(res)=>{
+                if(parseInt(res)){
+                    location.href='index.php';
+                }else{
+                    alert("帳號或密碼錯誤,請重新輸入");
+                }
+            })
+        }else{
+            alert("驗證碼錯誤,請重新輸入");
+        }
+    })
+}
+</script>
