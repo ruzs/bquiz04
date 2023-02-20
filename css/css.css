@@ -6,11 +6,12 @@ body
 }
 #main
 {
-	width:1034px;
+	width:1024px;
 	padding:10px;
 	margin:20px auto 20px auto;
 	border:#000 solid 1px;
-	min-height:768px;
+	height:768px; /*限制範圍*/
+	overflow: auto; /*限制範圍*/
 }
 #top a
 {
