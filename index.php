@@ -1,4 +1,13 @@
-<?php include_once "./api/base.php"; ?>
+<?php
+include_once './api/base.php';
+/* if(isset($_GET['do']) && $_GET['do']=='buycart'){
+  if(isset($_SESSION['mem'])){
+  
+  }else{
+    to("index.php?do=login");
+  }
+} */
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -50,7 +59,7 @@
     </div>
     <div id="left" class="ct">
       <div style="min-height:400px;">
-      <a href="?type=0">全部商品(<?=$Goods->count(['sh'=>1]);?>)</a>
+        <a href="?type=0">全部商品(<?= $Goods->count(['sh' => 1]); ?>)</a>
         <?php
         $bigs = $Type->all(['parent' => 0]);
         foreach ($bigs as $big) {
