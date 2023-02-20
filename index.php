@@ -50,18 +50,18 @@
     </div>
     <div id="left" class="ct">
       <div style="min-height:400px;">
-        <a href="">全部商品(<?= $Goods->count(['sh' => 1]); ?>)</a>
+      <a href="?type=0">全部商品(<?=$Goods->count(['sh'=>1]);?>)</a>
         <?php
         $bigs = $Type->all(['parent' => 0]);
         foreach ($bigs as $big) {
-          echo "<div class='ww'><a href=''>";
+          echo "<div class='ww'><a href='?type={$big['id']}'>";
           echo $big['name'];
           echo "(" . $Goods->count(['sh' => 1, 'big' => $big['id']]) . ")";
           echo "</a>";
           if ($Type->count(['parent' => $big['id']]) > 0) {
             $mids = $Type->all(['parent' => $big['id']]);
             foreach ($mids as $mid) {
-              echo "<div class='s'><a href=''>";
+              echo "<div class='s'><a href='?type={$mid['id']}'>";
               echo $mid['name'];
               echo "(" . $Goods->count(['sh' => 1, 'mid' => $mid['id']]) . ")";
               echo "</a></div>";
