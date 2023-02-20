@@ -15,9 +15,9 @@
 <body>
   <iframe name="back" style="display:none;"></iframe>
   <div id="main">
-    <div id="top">
+  <div style="padding:10px;display:inline-block;vertical-align:top">
       <a href="index.php">   
-        <img src="./icon/0416.jpg">
+        <img src="./icon/0416.jpg" style="width:50%">
       </a>
       <div style="padding:10px;">
         <a href="?">回首頁</a> |
