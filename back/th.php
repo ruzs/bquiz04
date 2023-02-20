@@ -41,6 +41,11 @@ function addBig(){
         location.reload()
     })
 }
+
+$.get("./api/get_bigs.php",(bigs)=>{
+    $("#b").html(bigs);
+})
+
 </script>
 
 <h2 class="ct">商品管理</h2>
