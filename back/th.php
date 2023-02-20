@@ -80,3 +80,6 @@
 </script>
 
 <h2 class="ct">商品管理</h2>
+<div class="ct">
+    <button onclick="location.href='?do=add_goods'">新增商品</button>
+</div>
