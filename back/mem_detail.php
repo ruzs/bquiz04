@@ -1,4 +1,4 @@
-<h2 class="ct">會員註冊</h2>
+<h2 class="ct">會員管理</h2>
 <table class="all">
   <tr>
     <td class="tt ct">姓名</td>
