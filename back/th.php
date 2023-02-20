@@ -1,3 +1,5 @@
+<?php $bigs=$Type->all(['parent'=>0]);?>
+
 <h2 class="ct">商品分類</h2>
 <div class="ct">
     新增大分類
@@ -7,13 +9,18 @@
 <div class="ct">
     新增中分類
     <select name="b" id="b">
+    <?php
+            foreach($bigs as $big){
+                echo "<option value='{$big['id']}'>{$big['name']}</option>";
+            }
+        ?>
     </select>
     <input type="text" name="mid" id="mid">
     <button>新增</button>
 </div>
 <table class="all">
 <?php
-$bigs=$Type->all(['parent'=>0]);
+// $bigs=$Type->all(['parent'=>0]);
 foreach($bigs as $big){
 ?>
 <tr class="tt">
@@ -42,9 +49,9 @@ function addBig(){
     })
 }
 
-$.get("./api/get_bigs.php",(bigs)=>{
-    $("#b").html(bigs);
-})
+// $.get("./api/get_bigs.php",(bigs)=>{
+//     $("#b").html(bigs);
+// })
 
 </script>
 
