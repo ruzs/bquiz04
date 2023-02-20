@@ -16,7 +16,7 @@
         ?>
     </select>
     <input type="text" name="mid" id="mid">
-    <button>新增</button>
+    <button onclick="addMid()">新增</button>
 </div>
 <table class="all">
 <?php
@@ -45,6 +45,12 @@ foreach($bigs as $big){
 <script>
 function addBig(){
     $.post("./api/add_big.php",{name:$("#big").val()},()=>{
+        location.reload()
+    })
+}
+
+function addMid(){
+    $.post("./api/add_mid.php",{parent:$("#b").val(),name:$("#mid").val()},()=>{
         location.reload()
     })
 }
