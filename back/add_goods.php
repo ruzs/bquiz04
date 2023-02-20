@@ -1,6 +1,6 @@
 <h2 class="ct">新增商品</h2>
 <!-- table.all>tr*9>td.tt.ct+td.pp>input -->
-<form action="./api/save_goods.php" method="post">
+<form action="./api/save_goods.php" method="post" enctype="multipart/form-data">
   <table class="all">
     <tr>
       <td class="tt ct">所屬大分類</td>
@@ -45,3 +45,26 @@
     <input type="button" value="返回" onclick="location.href='?do=th'">
   </div>
 </form>
+
+<script>
+  getBigs()
+  $("#big").on("change", function() {
+    getMids();
+  })
+
+  function getBigs() {
+    /* $.get("./api/get_bigs.php",(bigs)=>{
+        $("#big").html(bigs)
+    }) */
+    $('#big').load("./api/get_bigs.php", () => {
+      getMids();
+    })
+  }
+
+  function getMids() {
+    let big = $("#big").val();
+    $("#mid").load("./api/get_mids.php", {
+      big
+    })
+  }
+</script>

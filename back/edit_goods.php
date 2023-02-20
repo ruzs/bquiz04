@@ -1,7 +1,7 @@
 <h2 class="ct">新增商品</h2>
 <!-- table.all>tr*9>td.tt.ct+td.pp>input -->
-<form action="./api/save_goods.php" method="post">
-  <table class="all">
+<form action="./api/save_goods.php" method="post" enctype="multipart/form-data">
+    <table class="all">
     <tr>
       <td class="tt ct">所屬大分類</td>
       <td class="pp"><select name="big" id="big"></select></td>
