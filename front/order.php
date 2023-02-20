@@ -3,7 +3,7 @@
 <?php
 $user = $Mem->find(['acc' => $_SESSION['mem']]);
 ?>
-<table class="all">
+<table class="all" style="margin:0 auto 0 auto;">
   <tr>
     <td class="tt ct">登入帳號</td>
     <td class="pp"><?= $user['acc']; ?></td>
@@ -25,7 +25,7 @@ $user = $Mem->find(['acc' => $_SESSION['mem']]);
     <td class="pp"><input type="text" name="tel" id="tel" value="<?= $user['tel']; ?>"></td>
   </tr>
 </table>
-<table class="all">
+<table class="all" style="margin:0 auto 0 auto;">
   <tr class="tt ct">
     <td>商品名稱</td>
     <td>編號</td>
@@ -52,7 +52,7 @@ $user = $Mem->find(['acc' => $_SESSION['mem']]);
   }
   ?>
 </table>
-<table class="all ct">
+<table class="all ct" style="margin:0 auto 0 auto;">
   <tr class="tt">
     <td>總價:<?= $sum; ?></td>
   </tr>
