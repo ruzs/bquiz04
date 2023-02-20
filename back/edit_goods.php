@@ -12,36 +12,62 @@
     </tr>
     <tr>
       <td class="tt ct">商品編號</td>
-      <td class="pp"></td>
+      <td class="pp"><?=$row['no'];?></td>
     </tr>
     <tr>
       <td class="tt ct">商品名稱</td>
-      <td class="pp"><input type="text" name="name" id="name"></td>
+      <td class="pp"><input type="text" name="name" value="<?=$row['name'];?>"></td>
     </tr>
     <tr>
       <td class="tt ct">商品價格</td>
-      <td class="pp"><input type="number" name="price" id="price"></td>
+      <td class="pp"><input type="number" name="price" value="<?=$row['price'];?>"></td>
     </tr>
     <tr>
       <td class="tt ct">規格</td>
-      <td class="pp"><input type="text" name="spec" id="spec"></td>
+      <td class="pp"><input type="text" name="spec" value="<?=$row['spec'];?>"></td>
     </tr>
     <tr>
       <td class="tt ct">庫存量</td>
-      <td class="pp"><input type="text" name="stock" id="stock"></td>
+      <td class="pp"><input type="text" name="stock" value="<?=$row['stock'];?>"></td>
     </tr>
     <tr>
       <td class="tt ct">商品圖片</td>
-      <td class="pp"><input type="file" name="img" id="img"></td>
+      <td class="pp"><textarea name="intro" cols="60" rows="20"><?=$row['intro'];?></textarea></td>
     </tr>
     <tr>
       <td class="tt ct">商品介紹</td>
-      <td class="pp"><textarea name="intro" cols="80" rows="20"></textarea></td>
+      <td class="pp"><textarea name="intro" cols="60" rows="20"><?=$row['intro'];?></textarea></td>
     </tr>
   </table>
   <div class="ct">
-    <input type="submit" value="新增">
+    <input type="submit" value="修改">
     <input type="reset" value="重置">
     <input type="button" value="返回" onclick="location.href='?do=th'">
   </div>
 </form>
+
+<script>
+
+getBigs()
+
+$("#big").on("change",function(){
+    getMids();
+})
+
+let goods={big:<?=$row['big'];?>,mid:<?=$row['mid'];?>}
+
+function getBigs(){
+    $('#big').load("./api/get_bigs.php",()=>{
+        $(`#big option[value='${goods.big}']`).prop('selected',true)
+        let big=$("#big").val();
+        $("#mid").load("./api/get_mids.php",{big},()=>{
+            $(`#mid option[value='${goods.mid}']`).prop('selected',true)
+        })
+    })
+}
+
+function getMids(){
+    let big=$("#big").val();
+    $("#mid").load("./api/get_mids.php",{big})
+}
+</script>
