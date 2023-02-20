@@ -39,7 +39,7 @@ if(!isset($_SESSION['cart'])){
     <td><?=$row['stock'];?></td>
     <td><?=$row['price'];?></td>
     <td><?=$row['price'] * $qt;?></td>
-    <td><img src="./icon/0415.jpg" alt=""></td>
+    <td><img src="./icon/0415.jpg" onclick="removeItem(<?=$row['id'];?>)"></td>
   </tr>
   <?php
 }
@@ -47,12 +47,16 @@ if(!isset($_SESSION['cart'])){
 </table>
 
 <div class="ct">
-    <img src="./icon/0411.jpg" alt="">
+    <img src="./icon/0411.jpg" onclick="location.href='index.php'">
     <img src="./icon/0412.jpg" alt="">
 </div>
-
-
-
 <?php
 }
 ?>
+<script>
+function removeItem(id){
+    $.post("./api/remove_item.php",{id},()=>{
+        location.href="?do=buycart";
+    })
+}
+</script>
