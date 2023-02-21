@@ -20,7 +20,7 @@
       <td><?= $order['name']; ?></td>
       <td><?= date("Y/m/d", strtotime($order['ord_date'])); ?></td>
       <td>
-        <button onclick="del('Order',<?= $order['id']; ?>">刪除</button>
+        <button onclick="del('Order',<?= $order['id']; ?>)">刪除</button>
       </td>
     </tr>
   <?php
