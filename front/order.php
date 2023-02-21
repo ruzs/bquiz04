@@ -55,9 +55,23 @@ $user = $Mem->find(['acc' => $_SESSION['mem']]);
 <table class="all ct" style="margin:0 auto 0 auto;">
   <tr class="tt">
     <td>總價:<?= $sum; ?></td>
+    <input type="hidden" name="total" id="total" value="<?=$sum;?>">
   </tr>
 </table>
 <div class="ct">
   <button onclick='checkout()'>確定送出</button>
   <button onclick="history.go(-1)">返回修改訂單</button>
 </div>
+<script>
+  function checkout() {
+    $.post("./api/checkout.php",
+        {name:$("#name").val(),
+        email:$("#email").val(),
+        addr:$("#addr").val(),
+        tel:$("#tel").val(),
+        total:$("#total").val()},
+        ()=>{
+      alert("訂購成功,感謝您的選購")
+    })
+  }
+</script>
